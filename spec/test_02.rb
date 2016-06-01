@@ -17,5 +17,4 @@ describe Barracks do
   end
 
 
-
 end

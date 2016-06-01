@@ -35,20 +35,20 @@ describe Unit do
       @unit.attack!(@enemy)
     end
 
-    it "returns false if it is dead." do
+    it "returns nil if it is dead." do
       expect(@unit).to receive(:dead?).and_return(true)
-      expect(@unit.attack!(@enemy)).to be false
+      expect(@unit.attack!(@enemy)).to be_nil
     end
 
-    it "returns false if its enemy is dead." do
+    it "returns nil if its enemy is dead." do
       expect(@enemy).to receive(:dead?).and_return(true)
-      expect(@unit.attack!(@enemy)).to be false
+      expect(@unit.attack!(@enemy)).to be_nil
     end
 
-    it "returns true if both are alive." do
+    it "attacks if both are alive." do
       expect(@unit).to receive(:dead?).and_return(false)
       expect(@enemy).to receive(:dead?).and_return(false)
-      expect(@unit.attack!(@enemy)).to be true
+      expect(@unit.attack!(@enemy)).to be_truthy
     end
 
 
