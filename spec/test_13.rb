@@ -1,6 +1,5 @@
 require_relative 'spec_helper'
 
-
 describe SiegeEngine do
   before :each do
     @siege_engine = SiegeEngine.new
@@ -29,7 +28,7 @@ describe SiegeEngine do
 
     it 'cannot attack a unit that is not a siege engine' do
       @unit = Unit.new(60, 10)
-      expect(@siege_engine.attack!(@barracks)).to be_nil
+      expect(@siege_engine.attack!(@unit)).to be_nil
     end
 
     it 'can attack other siege engines' do
@@ -74,7 +73,7 @@ describe Barracks do
 
   describe '#train_siege_engine' do
 
-    it 'costs 200 gold' do
+    it 'costs 200 gold, 3 food, and 60 lumber.' do
       @barracks.train_siege_engine
       expect(@barracks.gold).to eq(800)
       expect(@barracks.food).to eq(77)

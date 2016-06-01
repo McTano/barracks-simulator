@@ -1,13 +1,13 @@
 class Barracks
 
+  attr_reader :gold, :food, :health_points, :lumber
+
   def initialize
     @health_points = 500
     @gold = 1000
     @food = 80
     @lumber = 500
   end
-
-  attr_reader :gold, :food, :health_points, :lumber
 
   def dead?
     health_points <= 0
@@ -43,10 +43,10 @@ class Barracks
 
   def train_siege_engine
     if can_train_siege_engine?
-    @food -= 3
-    @gold -= 200
-    @lumber -= 60
-    SiegeEngine.new
+      @food -= 3
+      @gold -= 200
+      @lumber -= 60
+      SiegeEngine.new
     end
   end
 
