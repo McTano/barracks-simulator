@@ -6,11 +6,17 @@ class Unit
   end
 
   def attack!(enemy)
+    return false if self.dead? || enemy.dead?
     enemy.damage(attack_power)
+    true
   end
 
-  def damage(x)
-    @health_points -= x
+  def damage(damage_points)
+    @health_points -= damage_points
+  end
+
+  def dead?
+    health_points <= 0
   end
 
   attr_reader :health_points, :attack_power

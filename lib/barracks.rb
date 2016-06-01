@@ -1,11 +1,12 @@
 class Barracks
 
   def initialize
+    @health_points = 500
     @gold = 1000
     @food = 80
   end
 
-  attr_reader :gold, :food
+  attr_reader :gold, :food, :health_points
 
   def can_train_footman?
     food >= 2 && gold >= 135
@@ -29,6 +30,10 @@ class Barracks
       @food -= 5
       Peasant.new
     end
+  end
+
+  def damage(damage_points)
+    @health_points -= damage_points
   end
 
 end
